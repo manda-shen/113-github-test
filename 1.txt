@@ -1,0 +1,22 @@
+$b=['姓名'=>"沈怡孜",'數學'=>90,'國文'=>80,'英文'=>85];
+
+$keys = array_keys($x);
+
+
+for($i = 0; $i < count($keys); $i++) {
+    $key = $keys[$i];
+    $value=$x[$key];
+    echo $key . ': ' . $value . '<br>';
+    echo "<br>";
+}
+
+
+
+
+
+
+$b=['姓名'=>"沈怡孜",'數學'=>90,'國文'=>80,'英文'=>85];
+
+foreach($b as $value){
+    echo $value . '<br>';
+}
