@@ -271,3 +271,28 @@ for($j=0;$j<10;$j++){
 echo "</table>";
 
 ?>
+
+<?php
+
+echo "<table class='nine'>";
+
+for($j=0;$j<10;$j++){
+    echo "<tr>";
+    for($i=0;$i<10;$i++){
+        echo "<td>";
+        if($j==0 && $i==0){
+            echo "";
+        }elseif($j==0){
+            echo "$i";
+        }elseif($i==0){
+            echo "$j";
+        }else{
+            echo ($i*$j);
+        }
+        echo "</td> ";
+    }
+    echo "</tr>";
+}
+echo "</table>";
+
+?>

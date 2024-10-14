@@ -179,8 +179,10 @@ for($i=0;$i<21;$i++){
 <h2>矩形</h2>
 <?php 
 
-for($i=0;$i<5;$i++){
-    for($j=0;$j<5;$j++){
+$width=7;
+
+for($i=0;$i<$width;$i++){
+    for($j=0;$j<$width;$j++){
         echo "*";
     }
     echo "<br>";
@@ -192,11 +194,14 @@ for($i=0;$i<5;$i++){
 <h2>矩形</h2>
 <?php 
 
-for($i=0;$i<5;$i++){
-    for($j=0;$j<5;$j++){
-        if($i==0 || $i==4){
+
+$width=7;
+
+for($i=0;$i<$width;$i++){
+    for($j=0;$j<$width;$j++){
+        if($i==0 || $i==$width-1){
             echo "*";
-        }elseif($j==0 || $j==4){
+        }elseif($j==0 || $j==$width-1){
             echo "*";
         }else{
             echo "&nbsp;";
@@ -205,8 +210,158 @@ for($i=0;$i<5;$i++){
     echo "<br>";
 }
 
+echo "<br>";
+
+for($i=0;$i<5;$i++){
+    for($j=0;$j<5;$j++){
+        if($i==1 && $j==2){
+            echo "&nbsp;";
+        }elseif($i==2 && $j==1){
+            echo "&nbsp;";
+        }elseif($i==2 && $j==3){
+            echo "&nbsp;";
+        }elseif($i==3 && $j==2){
+            echo "&nbsp;";
+        }else{
+            echo "*";
+        }
+    }
+    echo "<br>";
+}
+
+echo "<br>";
+
+
+for($i=0;$i<6;$i++){
+    for($j=0;$j<6;$j++){
+        if($i==0 || $j==0){
+            echo "*";
+        }elseif($i==5 || $j==5){
+            echo "*";
+        }elseif($i==$j ||$i+$j==5){
+            echo "*";
+                }else{
+            echo "&nbsp;";
+        }
+    }
+    echo "<br>";
+}
+echo "<br>";
+
+
+$li=15;
+
+for($i=1;$i<=$li;$i++){
+    for($j=1;$j<=$li;$j++){
+        if($i==1 || $j==1){
+            echo "*";
+        }elseif($i==$li || $j==$li){
+            echo "*";
+        }elseif($i==$j ||$i+$j==$li+1){
+            echo "*";
+                }else{
+            echo "&nbsp;";
+        }
+    }
+    echo "<br>";
+}
+
+echo "<br>";
+
+
+$li=15;
+
+for($i=1;$i<=$li;$i++){
+    for($j=1;$j<=$li;$j++){
+        if($i==1 || $i==$li){
+            echo "*";
+        }elseif($j==1 || $j==$li){
+            echo "*";
+        }elseif($i==$j ||$i+$j==$li+1){
+            echo "*";
+                }else{
+            echo "&nbsp;";
+        }
+    }
+    echo "<br>";
+}
+
 
 ?>
+<h2>菱形</h2>
+ <?php 
+
+
+$w=9;
+$k=ceil($w/2);
+
+for($i=1;$i<=$w;$i++){
+    for($j=1;$j<=$w;$j++){
+        if($i==$k || $j==$k){
+            echo "*";
+        }elseif(($i+$j)==$k+1 || abs($i-$j)==($k-1) ||($i+$j)==($w+$k)){
+            echo "*";
+                }else{
+            echo "&nbsp;";
+        }
+    }
+    echo "<br>";
+}
+
+/*上列方法遇到偶數會出現問題，所以改成下面方式。*/
+
+echo "<br>";
+
+$k=8;
+$w=($k*2)-1;
+
+for($i=1;$i<=$w;$i++){
+    for($j=1;$j<=$w;$j++){
+        if($i==$k || $j==$k){
+            echo "*";
+        }elseif(($i+$j)==$k+1 || abs($i-$j)==($k-1) ||($i+$j)==($w+$k)){
+            echo "*";
+                }else{
+            echo "&nbsp;";
+        }
+    }
+    echo "<br>";
+}
+
+
+//劉老師的方法
+
+echo "<br>";
+
+$size=9;
+
+for($i=0;$i<$size;$i++){
+    if($i>(floor($size/2))){
+        $k1=$i-(floor($size/2));
+        $j1=2*($i-(2*($i-(floor($size/2)))))+1;
+    }else{
+        $k1=(floor($size/2))-$i;
+        $j1=(2*$i+1);
+    }
+    
+    for($k=0;$k<$k1;$k++){
+        echo "&nbsp;";
+    }
+
+    for($j=0;$j<$j1;$j++){
+        if($j==0 || $j==$j1-1 || $i==(floor($size/2)) || $j==floor(($j1-1)/2)){
+            echo "*";
+        }else{
+            echo "&nbsp;";
+        }
+    }
+    echo"<br>";
+}
+
+?>
+
+
+
 
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
