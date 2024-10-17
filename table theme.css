@@ -1,0 +1,20 @@
+table {
+    border-collapse: collapse;
+    margin: 100px;
+}
+table, th, td {
+    border: 1px solid #aaa;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+}
+table tr:nth-child(1) {
+    background: #596141;
+    color: white;
+}
+table td:nth-child(1) {
+    background: #3b4938;
+    color: white;
+}
+
+

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link ref="stylesheet" href="./table theme.css">
 </head>
 <body>
     
@@ -159,6 +160,45 @@ echo "</table>";
 
 
 
+
+?>
+
+
+<?php
+
+$sub=['科目', '國文', '英文', '數學', '地理', '歷史'];
+$student=[];
+$student[]=['judy'=>[95, 64, 70, 90, 84]];
+$student[]=['amo'=>[88, 78, 54, 81, 71]];
+$student[]=['john'=>[45, 60, 68, 70, 62]];
+$student[]=['peter'=>[59, 32, 77, 54, 42]];
+$student[]=['hebe'=>[71, 62, 80, 62, 64]];
+
+
+echo"<table>";
+
+echo"<tr>";
+foreach($sub as $subject){
+    echo "<td>$subject</td>";
+}
+echo "</tr>";
+
+
+
+foreach($student as $data){
+    foreach($data as $name => $scores){
+        echo "<tr>";
+        echo "<td>$name</td>";
+        foreach($scores as $single_score){
+            echo "<td>$single_score</td>";
+        }
+    }
+    echo "</tr>";
+}
+
+
+
+echo"</table>";
 
 ?>
 
