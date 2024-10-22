@@ -307,6 +307,179 @@ echo "</pre>";
     ?>
 </table>
 
+<h2>利用程式來產生陣列</h2>
+<ul>
+    <li>以迴圈的方式產生一個九九乘法表</li>
+    <li>將九九乘法表的每個項目以字串型式存入陣列中</li>
+    <li>再以迴圈方式將陣列內容印出</li>
+</ul>
+
+<?php
+
+for($i=1;$i<=9;$i++){
+    for($j=1;$j<=9;$j++){
+        echo "$i X $j = ";
+        echo $i*$j;
+        echo ",";
+    }
+}
+
+echo "<br>";
+echo "<br>";
+
+echo "<hr>";
+$nine=[];
+
+for($i=1;$i<=9;$i++){
+    for($j=1;$j<=9;$j++){
+        $nine[]="$i X $j = ". ($i*$j);
+    }
+}
+
+
+// echo "<pre>";
+// print_r($nine);
+// echo "</pre>";
+
+$counter=0;
+foreach($nine as $index => $n){
+    $counter++;
+    if($counter==9){
+        echo $n . "<br>";
+        $counter=0;
+    }else{
+        echo $n . ",";
+    }
+}
+
+echo "<hr>";
+
+foreach($nine as $idx => $n){
+    if($idx %9 == 8){
+        echo "$n <br>";
+    }else{
+        echo $n . ",";
+    }
+}
+
+echo "<hr>";
+
+
+echo "<table>";
+foreach($nine as $idx => $n){
+    if($idx %9 ==0){
+        echo "<tr>";
+    }elseif($idx %9 == 8){
+        echo "</tr>";
+    }else{
+        echo "<td>$n</td>";
+    }
+}
+echo "</table>";
+
+echo "<table>";
+foreach($nine as $idx => $n){
+    $v=explode("=",$n)[1];
+    if($idx %9 ==0){
+        echo "<tr><td>$v</td>";
+    }elseif($idx %9 == 8){
+        echo "<td>$v</td></tr>";
+    }else{
+        echo "<td>$v</td>";
+    }
+}
+echo "</table>";
+
+
+echo "<hr>";
+
+foreach($nine as $idx => $n){
+    if($idx%9==8){
+        echo $n . "<br>";
+    }else{
+        echo $n . ", ";
+    }
+}
+
+
+
+echo "<table>";
+foreach($nine as $idx => $n){
+    if($idx%9==8){
+        echo "<td>$n</td></tr>";
+
+    }else if($idx%9==0){
+        echo "<tr><td>$n</td>";
+        
+    }else{
+        echo "<td>$n</td>";
+    }
+}
+echo "</table>";
+
+echo "<hr>";
+
+echo "<table>";
+foreach($nine as $idx => $n){
+    $v=explode("=",$n)[1];
+    if($idx%9==8){
+        echo "<td>$v</td></tr>";
+
+    }else if($idx%9==0){
+        echo "<tr><td>$v</td>";
+
+    }else{
+        echo "<td>$v</td>";
+    }
+}
+echo "</table>";
+
+echo "<hr>";
+
+for($i=1;$i<=9;$i++){
+    for($j=1;$j<=9;$j++){
+        $nine2["$i X $j"]= ($i*$j);
+    }
+}
+echo "<pre>";
+print_r($nine2);
+echo "</pre>";
+echo "<hr>";
+
+
+$counter=0;
+foreach($nine2 as $n){
+    $counter++;
+    if($counter==9){
+        echo "<td>$n</td></tr>";
+        $counter=0;
+    }else if($counter==1){
+        echo "<tr><td>$n</td>";
+    }else{
+        echo "<td>$n</td>" ;
+    }
+}
+
+$counter=0;
+foreach($nine2 as $n){
+    $counter++;
+    if(counter==9){
+        echo "$n<br>";
+    }else{
+        echo $key ."=". $n ;
+    }
+}
+
+
+for($i=1;$i<=9;$i++){
+    for($j=1;$j<=9;$j++){
+        $nine3[]=['formula' => "$i x $j",'value' => $i*$j];
+    }
+}
+
+
+?>
+
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
