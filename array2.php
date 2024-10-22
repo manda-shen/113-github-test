@@ -55,9 +55,9 @@ for($i=2024; $i<=2524; $i++){
     }
 }
  
-// echo "<pre>";
-// print_r($leap);
-// echo "</pre>";
+echo "<pre>";
+print_r($leap);
+echo "</pre>";
 
 
 ?>
@@ -71,9 +71,9 @@ $land=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
 
 $sl=[];
 echo "<table>";
-for($i=0;$i<=6;$i++){
+for($i=0;$i<6;$i++){
     echo "<tr>";
-    for($j=0;$j<=10;$j++){
+    for($j=0;$j<10;$j++){
         $cellnum=10*$i+$j;
         $landIndex=$cellnum%12;
         echo "<td>";
@@ -99,9 +99,9 @@ $year=2034;
 
 echo $sl[($year-4)%60];
 
-//echo "<pre>";
-//print_r($sl);
-//echo "</pre>";
+echo "<pre>";
+print_r($sl);
+echo "</pre>";
 
 ?>
 <h2>
@@ -115,12 +115,54 @@ echo $sl[($year-4)%60];
 
 $a=[2,4,6,1,8];
 
-for($i=0; $i<floor(count($a)/2);$i++){
+for($i=0; $i<=floor(count($a)/2);$i++){
     $tmp=$a[$i];
     $a[$i]=$a[count($a)-1-$i];
-    $a[count($a)-1-$i]=$temp;
+    $a[count($a)-1-$i]=$tmp;
 }
 echo "<br>";
+echo "<pre>";
+print_r($a);
+echo "</pre>";
+echo "<hr>";
+echo "<pre>";
+print_r(array_reverse($a));
+echo "</pre>";
+
+
+$a=[2,9,3,2,0,4,8,5,1];
+
+for($i=1; $i<=floor(count($a)/2); $i++){
+    $tmp=$a[floor(count($a)/2)-$i];
+    $a[floor(count($a)/2)-$i]=$a[floor(count($a)/2)+$i];
+    $a[floor(count($a)/2)+$i]=$tmp;
+}
+
+echo "<br>";
+echo "<pre>";
+print_r($a);
+echo "</pre>";
+echo "<hr>";
+echo "<pre>";
+print_r(array_reverse($a));
+echo "</pre>";
+
+$a=[2,9,3,2,0,4,8,5,1];
+$k=floor(count($a)/2);
+
+for($i=1; $i<=$k; $i++){
+    $tmp=$a[$i-$k];
+    $a[$i-$k]=$a[$i+$k];
+    $a[$i+$k]=$tmp;
+}
+echo "<br>";
+echo "<pre>";
+print_r($a);
+echo "</pre>";
+echo "<hr>";
+echo "<pre>";
+print_r(array_reverse($a));
+echo "</pre>";
 
 
 ?>
