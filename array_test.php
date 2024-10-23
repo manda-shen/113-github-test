@@ -14,23 +14,31 @@
 $sky=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
 $land=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
 
-$sl=[];
-echo "<table>";
-for($i=0;$i<6;$i++){
-    echo "<tr>";
-    for($j=0;$j<10;$j++){
-        $cellnum=10*$i+$j;
-        $landIndex=$cellnum%12;
-        echo "<td>";
-        echo $sky[$j];
-        echo $land[$landIndex];
-        echo "</td>";
+
+echo "<table border='1'>";
+
+for($i=0;$i<60;$i++){
+    if($i %10 == 0){
+        echo "<tr>";
     }
-    echo "</tr>";
+    echo "<td>";
+    echo $sky[$i % count($sky)];
+    echo $land[$i % count($land)];
+    echo "</td>";
+    if(($i+1) %10 == 0){
+        echo "</tr>";
+    }
 }
 echo "</table>";
 
-echo "<br>";
+$year=1930;
+$i=$year - 1024;
+
+echo $sky[$i % count($sky)];
+echo $land[$i % count($land)];
+
+ 
+
 
 ?>
     
