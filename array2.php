@@ -120,9 +120,7 @@ for($i=0;$i<60;$i++){
     }
 }
 
-echo "<table border='1'>"; 
-echo "<table>";
-
+echo "<table border=1px>"; 
 for($i=0;$i<60;$i++){
     if($i %10 == 0){
         echo "<tr>";
@@ -131,8 +129,8 @@ for($i=0;$i<60;$i++){
     echo $s[$i % count($s)];
     echo $l[$i % count($l)];
     echo "</td>";
-    if($i %10 == 0){
-        echo "<tr>";
+    if(($i+1) %10 == 0){
+        echo "</tr>";
     }
 }
 echo "</table>";
@@ -160,7 +158,7 @@ echo $l[$i % count($l)];
 
 $a=[2,4,6,1,8];
 
-for($i=0; $i<=floor(count($a)/2);$i++){
+for($i=0; $i<floor(count($a)/2);$i++){
     $tmp=$a[$i];
     $a[$i]=$a[count($a)-1-$i];
     $a[count($a)-1-$i]=$tmp;
@@ -175,30 +173,14 @@ print_r(array_reverse($a));
 echo "</pre>";
 
 
-$a=[2,9,3,2,0,4,8,5,1];
-
-for($i=1; $i<=floor(count($a)/2); $i++){
-    $tmp=$a[floor(count($a)/2)-$i];
-    $a[floor(count($a)/2)-$i]=$a[floor(count($a)/2)+$i];
-    $a[floor(count($a)/2)+$i]=$tmp;
-}
-
-echo "<br>";
-echo "<pre>";
-print_r($a);
-echo "</pre>";
-echo "<hr>";
-echo "<pre>";
-print_r(array_reverse($a));
-echo "</pre>";
 
 $a=[2,9,3,2,0,4,8,5,1];
 $k=floor(count($a)/2);
 
-for($i=1; $i<=$k; $i++){
-    $tmp=$a[$i-$k];
-    $a[$i-$k]=$a[$i+$k];
-    $a[$i+$k]=$tmp;
+for($i=0; $i<$k; $i++){
+    $tmp=$a[$i];
+    $a[$i]=$a[$k-1-$i];
+    $a[$k-1-$i]=$tmp;
 }
 echo "<br>";
 echo "<pre>";
