@@ -104,6 +104,51 @@ print_r($sl);
 echo "</pre>";
 
 ?>
+
+<?php
+
+$s=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+$l=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+
+
+for($i=0;$i<60;$i++){
+    echo $s[$i % count($s)];
+    echo $l[$i % count($l)];
+    echo " ";
+    if(($i+1) %10 == 0){
+        echo "<br>";
+    }
+}
+
+echo "<table border='1'>"; 
+echo "<table>";
+
+for($i=0;$i<60;$i++){
+    if($i %10 == 0){
+        echo "<tr>";
+    }
+    echo "<td>";
+    echo $s[$i % count($s)];
+    echo $l[$i % count($l)];
+    echo "</td>";
+    if($i %10 == 0){
+        echo "<tr>";
+    }
+}
+echo "</table>";
+
+$year=1930;
+$i=$year - 1024;
+
+echo $s[$i % count($s)];
+echo $l[$i % count($l)];
+
+ 
+
+
+?>
+
+
 <h2>
 請設計一支程式，在不產生新陣列的狀況下，將一個陣列的元素順序反轉(利用迴圈)
 </h2>
