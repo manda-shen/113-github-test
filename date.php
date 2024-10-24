@@ -95,7 +95,7 @@ for($i=0;$i<5;$i++){
     <li>可以在特殊日期中顯示資訊(假日或紀念日)</li>
     <li>嘗試以block box或flex box的方式製作月曆</li>
 </ul>
-
+<h3><?php echo date("m月");?></h3>
 <style>
     table{
         border-collapse:collapse;
@@ -109,7 +109,64 @@ for($i=0;$i<5;$i++){
         background:pink;
         color:#999;
     }
+    .grey-text{
+        color:#999;
+    }
+    .today{
+        background:blue;
+        color:white;
+        font-weight:bolder;
+    }
+    
 </style>
+
+<table>
+<tr>
+    <td></td>
+    <td>日</td>
+    <td>一</td>
+    <td>二</td>
+    <td>三</td>
+    <td>四</td>
+    <td>五</td>
+    <td>六</td>
+</tr>
+<?php
+echo date("Y-m-d");
+$firstDay=date("Y-m-01");
+$firstDay_stamp=strtotime($firstDay);
+
+$week_firstDay=date("w", $firstDay_stamp);
+$start_stamp=strtotime("-$week_firstDay day",$firstDay_stamp);
+
+for($i=0;$i<6;$i++){
+    echo "<tr>";
+    echo "<td>";
+    echo $i+1;
+    echo "</td>";
+    for($j=0;$j<7;$j++){
+        $isToday=(date("Y-m-d",$start_stamp)==date("Y-m-d"))?'today':'';
+        $theMonth=(date("m",$start_stamp)==date("m",$firstDay_stamp))?'':'grey-text';
+        $w=date("w", $start_stamp);
+        $isHoliday=($w==0 || $w==6)?'holiday':'';
+        echo "<td class='$theMonth $isToday $isHoliday'>";
+
+        echo date("j",$start_stamp);
+        $start_stamp=strtotime("+1 day", $start_stamp);
+
+
+        echo "</td>";
+    }
+    echo "</tr>";
+}
+
+
+
+
+?>
+</table>
+
+<hr>
 <table>
 <tr>
     <td></td>
@@ -147,6 +204,8 @@ for($i=0; $i<6; $i++){
 
 
 ?>
+</table>
+
 <table>
 <tr>
     <td></td>
@@ -180,6 +239,9 @@ for($i=0; $i<6; $i++){
 
 
 ?>
+</table>
+
+
 <?php
 
 
@@ -187,6 +249,6 @@ for($i=0; $i<6; $i++){
 ?>
 
     
-</table>
+
 </body>
 </html>
