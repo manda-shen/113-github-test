@@ -61,14 +61,6 @@ echo "今天是西元".date("Y年m月d日",$day). "上班日(或休假日)";
 echo "<br>";
 echo "<br>";
 
-echo date("Y年m月d日");
-echo "<br>";
-echo date("m月d日 l");
-echo "<br>";
-echo date("Y-m-d");
-echo "<br>";
-echo date("m月d日");
-echo "<br>";
 
 
 $weekString=[
