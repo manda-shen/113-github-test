@@ -48,6 +48,19 @@ echo "$d2";
 
 <?php
 
+$day=strtotime("2021-10-5 12:09:05");
+echo date("Y年m月d日",$day);
+echo "<br>";
+echo date("m月d日",$day);
+echo "<br>";
+echo date("Y-m-d H:i:s",$day);
+echo "<br>";
+echo date("Y-m-d H:",$day).ltrim(date("i:",$day),'0').ltrim(date("s",$day),'0');
+echo "<br>";
+echo "今天是西元".date("Y年m月d日",$day). "上班日(或休假日)";
+echo "<br>";
+echo "<br>";
+
 echo date("Y年m月d日");
 echo "<br>";
 echo date("m月d日 l");
@@ -56,24 +69,34 @@ echo date("Y-m-d");
 echo "<br>";
 echo date("m月d日");
 echo "<br>";
-$weekString=[
-'Monday' => ['min'=> "一", 'short'=> "周一", 'fulltext'=> "星期一"],
-'Tuesday' => ['min'=> "二", 'short'=> "周二", 'fulltext'=> "星期二"],
-'Wednesday' => ['min'=> "三", 'short'=> "周三", 'fulltext'=> "星期三"],
-'Thursday' => ['min'=> "四", 'short'=> "周四", 'fulltext'=> "星期四"],
-'Friday' => ['min'=> "五", 'short'=> "周五", 'fulltext'=> "星期五"],
-'Saturday' => ['min'=> "六", 'short'=> "周六", 'fulltext'=> "星期六"],
-'Sunday' => ['min'=> "日", 'short'=> "周日", 'fulltext'=> "星期日"]
-];
 
+
+$weekString=[
+    'Monday'=>['min'=>'一','short'=>'周一','fulltext'=>'星期一'],
+    'Tuesday'=>['min'=>'二','short'=>'周二','fulltext'=>'星期二'],
+    'Wednesday'=>['min'=>'三','short'=>'周三','fulltext'=>'星期三'],
+    'Thursday'=>['min'=>'四','short'=>'周四','fulltext'=>'星期四'],
+    'Friday'=>['min'=>'五','short'=>'周五','fulltext'=>'星期五'],
+    'Saturday'=>['min'=>'六','short'=>'周六','fulltext'=>'星期六'],
+    'Sunday'=>['min'=>'七','short'=>'周日','fulltext'=>'星期日']
+    ];
 echo date("Y年m月d日");
 echo "<br>";
-
+echo date("m月d日 l");
+echo "<br>";
+echo date("m月d日").$weekString[date("l")]['min'];
+echo "<br>";
+echo date("m月d日").$weekString[date("l")]['short'];
+echo "<br>";
 echo date("m月d日").$weekString[date("l")]['fulltext'];
 echo "<br>";
-
+echo "今天是西元".date("Y年m月d日");
+if(date("N")>5){
+echo "假日";
+}else{
+echo "上班日";
+}
 echo "<br>";
-
 ?>
 
 <?php
