@@ -57,11 +57,17 @@ echo date("Y-m-d H:i:s",$day);
 echo "<br>";
 echo date("Y-m-d H:",$day).ltrim(date("i:",$day),'0').ltrim(date("s",$day),'0');
 echo "<br>";
-echo "今天是西元".date("Y年m月d日",$day). "上班日(或休假日)";
-echo "<br>";
-echo "<br>";
 
 
+$day_of_week=date("N",$day);
+if($day_of_week == 7 && $day_of_week == 6){
+    echo "今天是西元".date("Y年m月d日",$day). " 休假日";
+}else{
+    echo "今天是西元".date("Y年m月d日",$day). " 上班日";
+}
+
+echo "<br>";
+echo "<br>";
 
 $weekString=[
     'Monday'=>['min'=>'一','short'=>'周一','fulltext'=>'星期一'],
