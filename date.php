@@ -183,6 +183,43 @@ for($i=0;$i<5;$i++){
     
 </style>
 
+
+<table>
+<tr>
+    <td>日</td>
+    <td>一</td>
+    <td>二</td>
+    <td>三</td>
+    <td>四</td>
+    <td>五</td>
+    <td>六</td>
+</tr>
+<?php
+echo date("Y-m-d");
+$firstDay=date("Y-m-01");
+$firstDay_stamp=strtotime($firstDay);
+
+$week_firstDay=date("w", $firstDay_stamp);
+$start_stamp=strtotime("-$week_firstDay days",$firstDay_stamp);
+
+for($i=0;$i<6;$i++){
+    echo "<tr>";
+    for($j=0;$j<7;$j++){
+        echo "<td>";
+        echo date("j",$start_stamp);
+        $start_stamp=strtotime("+1 day", $start_stamp);
+        echo "</td>";
+    }
+    echo "</tr>";
+}
+
+
+
+
+?>
+</table>
+
+
 <table>
 <tr>
     <td></td>
@@ -200,7 +237,7 @@ $firstDay=date("Y-m-01");
 $firstDay_stamp=strtotime($firstDay);
 
 $week_firstDay=date("w", $firstDay_stamp);
-$start_stamp=strtotime("-$week_firstDay day",$firstDay_stamp);
+$start_stamp=strtotime("-$week_firstDay days",$firstDay_stamp);
 
 for($i=0;$i<6;$i++){
     echo "<tr>";
@@ -226,6 +263,46 @@ for($i=0;$i<6;$i++){
 
 ?>
 
+<h2>再重作一次月曆</h2>
+
+
+
+<table>
+    <tr>
+        <td>一</td>
+        <td>二</td>
+        <td>三</td>
+        <td>四</td>
+        <td>五</td>
+        <td>六</td>
+        <td>日</td>
+    </tr>
+
+<?php
+
+$day1st=date("Y-m-01");
+$day1st_stamp=strtotime($day1st);
+$day1st_of_week=date("w",$day1st_stamp);
+$start_day_stamp=strtotime("-$day1st_of_week days",$day1st_stamp);
+
+
+for($i=0; $i<6; $i++){
+    echo "<tr>";
+
+    for($j=0; $j<7; $j++){
+        echo "<td>";
+        echo date("j", $start_day_stamp);
+        $start_day_stamp=strtotime("+1 days",$start_day_stamp);
+        echo "</td>";
+    }
+    echo "</tr>";
+}
+
+
+
+?>
+
+</table>
 
 </body>
 </html>
