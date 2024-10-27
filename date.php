@@ -59,15 +59,57 @@ echo date("Y-m-d H:",$day).ltrim(date("i:",$day),'0').ltrim(date("s",$day),'0');
 echo "<br>";
 
 
-$day_of_week=date("N",$day);
-if($day_of_week == 7 && $day_of_week == 6){
+$day_of_week=date("w",$day);
+if($day_of_week == 6 && $day_of_week == 0){
     echo "今天是西元".date("Y年m月d日",$day). " 休假日";
 }else{
     echo "今天是西元".date("Y年m月d日",$day). " 上班日";
 }
 
-echo "<br>";
-echo "<br>";
+echo "<br><br>";
+
+?>
+
+<h2>利用迴圈來計算連續五個周一的日期</h2>
+<ul>
+    <li>2021-10-04 星期一</li>
+    <li>2021-10-11 星期一</li>
+    <li>2021-10-18 星期一</li>
+    <li>2021-10-25 星期一</li>
+    <li>2021-11-01 星期一</li>
+</ul>
+
+<?php
+$start_day_stamp=strtotime("2021-10-04");
+
+$day_of_week_array=[
+    0 => ['min'=>'日','short'=>'周日','fulltext'=>'星期日'],
+    1 => ['min'=>'一','short'=>'周一','fulltext'=>'星期一'],
+    2 => ['min'=>'二','short'=>'周二','fulltext'=>'星期二'],
+    3 => ['min'=>'三','short'=>'周三','fulltext'=>'星期三'],
+    4 => ['min'=>'四','short'=>'周四','fulltext'=>'星期四'],
+    5 => ['min'=>'五','short'=>'周五','fulltext'=>'星期五'],
+    6 => ['min'=>'六','short'=>'周六','fulltext'=>'星期六'],
+];
+
+for($n=0; $n<5; $n++){
+    $each_day_stamp=strtotime("+$n weeks",$start_day_stamp);
+    $each_day_of_week=date("w",$each_day_stamp);
+    echo $n+1 .". ". date("Y-m-d",$each_day_stamp) . " " .$day_of_week_array[$each_day_of_week]['fulltext'] . "<br>";
+}
+
+
+echo "<br><br>";
+
+
+
+
+
+?>
+
+<h2>劉老師作法</h2>
+<?php
+
 
 $weekString=[
     'Monday'=>['min'=>'一','short'=>'周一','fulltext'=>'星期一'],
